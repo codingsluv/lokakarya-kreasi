@@ -16,4 +16,12 @@ class WorkshopPartisipan extends Model
         'workshop_id',
         'booking_transaction_id',
     ];
+
+    public function workshop(){
+        return $this->belongsTo(Workshop::class, 'workshop_id');
+    }
+
+    public function bookingTransaction(){
+        return $this->belongsTo(BookingTransaction::class, 'booking_transaction_id');
+    }
 }

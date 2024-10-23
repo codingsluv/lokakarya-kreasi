@@ -24,4 +24,18 @@ class BookingTransaction extends Model
         'is_paid',
         'workshop_id',
     ];
+
+    public static function generateUnixTrxId(){
+        $prefix = 'KRYAKTIVE';
+        do {
+            $randomString = $prefix . mt_rand(1000, 9999);
+        } while (
+            self::where('booking_trx_id', $randomString)->exists()
+        );
+        return $randomString;
+    }
+
+    public function workshop(){
+        return $this->belongsTo(Workshop::class, 'workshop_id');
+    }
 }

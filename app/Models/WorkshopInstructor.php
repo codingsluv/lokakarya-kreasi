@@ -14,4 +14,8 @@ class WorkshopInstructor extends Model
         'avatar',
         'occupation',
     ];
+
+    public function workshops(){
+        return $this->hasMany(Workshop::class);
+    }
 }
