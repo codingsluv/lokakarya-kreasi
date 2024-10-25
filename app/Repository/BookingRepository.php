@@ -35,4 +35,5 @@ class BookingRepository implements BookingRepositoryInterface
     public function clearSession(){
         Session::forget('orderData');
     }
+
 }
