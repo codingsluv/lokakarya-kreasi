@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::controller(FrontController::class)->group(function () {
-    Route::get('/', 'index')->name('front.index');
+    Route::get('/', 'index')->name(name: 'front.index');
     Route::get('/browse/{category:slug}', 'category')->name('front.category');
     Route::get('/workshop/{workshop:slug}', 'details')->name('front.details');
 });
+// Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 
 Route::controller(BookingController::class)->group(function () {
     Route::get('/check-booking', 'checkBooking')->name('front.check_booking');
